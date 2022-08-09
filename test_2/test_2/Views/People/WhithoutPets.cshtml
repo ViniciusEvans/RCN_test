@@ -1,0 +1,34 @@
+﻿@model List<Person>
+
+@{
+    ViewData["Title"] = "WhithoutPets";
+}
+
+<h1>WhithoutPets</h1>
+<h2>Pessoas com filhos e sem pets</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Sons
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td> 
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sons)
+                </td> 
+            </tr>
+        }
+    </tbody>
+</table>

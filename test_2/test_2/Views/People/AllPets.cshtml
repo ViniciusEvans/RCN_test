@@ -1,0 +1,43 @@
+﻿@model List<Pet>
+
+@{
+    ViewData["Title"] = "AllPets";
+}
+
+<h1>Index</h1>
+<h2>Todos os pets agrupados por pessoa</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Adotado
+            </th> 
+            <th>
+                Pessoa Id
+            </th>   
+            <th>
+                Pessoa Nome
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>     <td>
+                    @Html.DisplayFor(modelItem => item.Adopted)
+                </td>     <td>
+                    @Html.DisplayFor(modelItem => item.Person.Id)
+                </td>     <td>
+                    @Html.DisplayFor(modelItem => item.PersonName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
