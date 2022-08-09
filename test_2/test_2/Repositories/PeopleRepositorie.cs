@@ -50,15 +50,16 @@ namespace test_2.Repositories
 
             var result = from p in _context.People
                          join pet in _context.Pets
-                         on p.Id equals pet.Person.Id into pt
-                         from subpet in pt.DefaultIfEmpty()
-                         group subpet by new {subpet.Id, subpet.Person.Name} into gp
-                         select new Person { Name = gp.Key.Name, PetsId = gp.Count()};
+                         on p.Id equals pet.Person.Id
+                         group p by p.Id into wp
+                         from subperson in wp.DefaultIfEmpty() 
+                         select new Person { Name = subperson.Name, PetsId = subperson.Pets.Count()};
             var dataView = new List<Person>();
 
             foreach (var item in result)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.PetsId);
+                dataView.Add(new Person() { Name = item.Name, PetsId = item.PetsId });
 
             }
 

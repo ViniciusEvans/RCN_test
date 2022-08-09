@@ -25,6 +25,7 @@ namespace test_2.Models
 
         public int PetsId { get; set; }
 
+
         public ICollection<Pet> Pets { get; set; } = new List<Pet>();
 
         public Person()
@@ -35,7 +36,7 @@ namespace test_2.Models
         public Person(string name, int age, int sons)
         {
             Name = name;
-            Age = Age;
+            Age = age;
             Sons = sons;
         }
 

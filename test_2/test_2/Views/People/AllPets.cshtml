@@ -1,4 +1,4 @@
-﻿@model List<Pet>
+﻿@model List<Person>
 
 @{
     ViewData["Title"] = "AllPets";
@@ -31,12 +31,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>     <td>
-                    @Html.DisplayFor(modelItem => item.Adopted)
-                </td>     <td>
-                    @Html.DisplayFor(modelItem => item.Person.Id)
-                </td>     <td>
-                    @Html.DisplayFor(modelItem => item.PersonName)
-                </td>
+                    @Html.DisplayFor(modelItem => item.PetsId)
+                </td> 
             </tr>
         }
     </tbody>
