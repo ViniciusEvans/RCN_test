@@ -47,20 +47,17 @@ namespace test_2.Repositories
         }
         public List<Person> GetPets()
         {
+            var result = (from p in _context.People
+                             join pet in _context.Pets
+                             on p.Id equals pet.Person.Id
+                             group p by new { p.Id, p.Name, p.Pets.Count } into wp
+                             select new Person { Name = wp.Key.Name, Id = wp.Key.Id, QtdPet = wp.Key.Count}).ToList();
 
-            var result = from p in _context.People
-                         join pet in _context.Pets
-                         on p.Id equals pet.Person.Id
-                         group p by p.Id into wp
-                         from subperson in wp.DefaultIfEmpty() 
-                         select new Person { Name = subperson.Name, PetsId = subperson.Pets.Count()};
             var dataView = new List<Person>();
 
             foreach (var item in result)
             {
-                Console.WriteLine(item.PetsId);
-                dataView.Add(new Person() { Name = item.Name, PetsId = item.PetsId });
-
+                dataView.Add(new Person() { Name = item.Name, QtdPet = item.QtdPet });
             }
 
             return dataView;

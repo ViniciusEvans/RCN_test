@@ -14,14 +14,9 @@
                 Nome
             </th>
             <th>
-                Adotado
-            </th> 
-            <th>
-                Pessoa Id
-            </th>   
-            <th>
-                Pessoa Nome
+                Quantidade de Pets
             </th>
+
         </tr>
     </thead>
     <tbody>
@@ -30,9 +25,11 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
-                </td>     <td>
-                    @Html.DisplayFor(modelItem => item.PetsId)
-                </td> 
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QtdPet)
+                </td>
+
             </tr>
         }
     </tbody>

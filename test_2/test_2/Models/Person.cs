@@ -23,15 +23,14 @@ namespace test_2.Models
         [Display(Name = "Filhos")]
         public int Sons { get; set; }
 
-        public int PetsId { get; set; }
-
 
         public ICollection<Pet> Pets { get; set; } = new List<Pet>();
+        public int QtdPet { get; internal set; }
 
         public Person()
         {
 
-        }
+        }   
 
         public Person(string name, int age, int sons)
         {
@@ -39,11 +38,6 @@ namespace test_2.Models
             Age = age;
             Sons = sons;
         }
-
-        public Person(string name, int petsId)
-        {
-            Name = name;
-            PetsId = petsId;
-        }   
+  
     }
 } 
